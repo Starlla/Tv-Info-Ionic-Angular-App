@@ -1,9 +1,30 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab Two
-    </ion-title>
+<!--    <ion-title color="light">-->
+<!--      Search-->
+<!--    </ion-title>-->
+    <ion-searchbar color = "light" (ionChange)="handleInput($event)" animated placeholder="Filter Schedules"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" size-lg = "2" *ngFor = "let tv of tvList" >
+        <ion-card >
+          <div class = "cover-container">
+            <ion-img  [routerLink] = "['tv-detail', tv.show.id]" [src] = "tv.show.image?.medium"></ion-img>
+            <div class = "rating-text-container">
+              <p class = "ion-no-padding ratingText" >{{tv.show.rating?.average}}</p>
+            </div>
+
+          </div>
+
+          <ion-card-header>
+            <ion-card-title color="light">{{tv.show.name}}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

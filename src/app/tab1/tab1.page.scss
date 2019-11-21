@@ -2,3 +2,31 @@
   max-height: 35vh;
   overflow: hidden;
 }
+ion-card-title{
+  font-size: small;
+}
+.page-title{
+  color: var(--ion-color-primary);
+  font-weight: bold;
+  font-family: "Arial Black";
+}
+
+.ratingText{
+  font-weight: bold;
+  font-size:1.5em;
+  color: var(--ion-color-danger);
+  margin:0;
+}
+
+.rating-text-container{
+  position: absolute;
+  left:3%;
+  bottom:3%;
+}
+.cover-container{
+  position:relative;
+}
+
+
+
+

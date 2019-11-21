@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button [text]=""></ion-back-button>
+        </ion-buttons>
+        <ion-title></ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-img [src] = "(tvDetail|async)?.image.medium"></ion-img>
+            </ion-col>
+            <ion-col>
+                <ion-title color="light">{{(tvDetail|async)?.name}}</ion-title>
+                <ion-chip color="light" *ngFor = "let genre of (tvDetail | async)?.genres" >{{genre}}</ion-chip>
+                <ion-title class = "status-text">status: {{(tvDetail|async)?.status}}</ion-title>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-card-subtitle class = "ion-padding" color="light" [innerHTML]="(tvDetail|async)?.summary"></ion-card-subtitle>
+
+
+    <ion-list >
+        <ion-list-header ><ion-title color="light">Cast</ion-title></ion-list-header>
+        <ion-item *ngFor = "let cast of (castList| async)">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size = "6" size-lg="4">
+                        <img class = "cast_img" [src] = "cast.person.image?.medium"/>
+                        <ion-title class = "cast_title">{{cast.person?.name}}</ion-title>
+                    </ion-col>
+                    <ion-col size = "6" size-lg="4">
+                        <ion-img class = "cast_img" [src] = "cast?.character.image?.medium"></ion-img>
+                        <ion-title class="cast_title" >{{cast?.character?.name}}</ion-title>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+    </ion-list>
+
+
+
+
+</ion-content>
